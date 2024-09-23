@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile - Personal Expense Tracker{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <!-- Profile Header -->
+        <div class="text-center mb-4">
+            <h1 class="display-5 fw-bold">Manage & Track Your Finances</h1>
+            <p class="lead text-muted">Keep your profile up to date and effortlessly track your income and expenses.</p>
+        </div>
+
+        <!-- Buttons Section -->
+        <div class="row justify-content-center">
+            <!-- Log Income -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-success text-center shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-money-check-alt fa-3x text-success mb-3"></i>
+                        <h5 class="card-title">Log Income</h5>
+                        <p class="card-text">Track and manage your earnings by logging your income sources.</p>
+                        <a href="/log?type=income" class="btn btn-success btn-block">Log Income</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Log Expenses -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-danger text-center shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-receipt fa-3x text-danger mb-3"></i>
+                        <h5 class="card-title">Log Expense</h5>
+                        <p class="card-text">Easily record your expenses to keep track of your spending habits.</p>
+                        <a href="/log?type=expense" class="btn btn-danger btn-block">Log Expense</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-primary text-center shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">View Summary</h5>
+                        <p class="card-text">Review your income and expenses with detailed summaries.</p>
+                        <a href="/summary" class="btn btn-primary btn-block">View Summary</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visualizations -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-secondary text-center shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-chart-pie fa-3x text-secondary mb-3"></i>
+                        <h5 class="card-title">Visualize Data</h5>
+                        <p class="card-text">Analyze your financial data with interactive charts and graphs.</p>
+                        <a href="/visualizations" class="btn btn-secondary btn-block">View Visualizations</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - Personal Expense Tracker{% endblock %}
+
+{% block content %}
+    <h1>Dashboard</h1>
+    
+    <!-- Existing bar graph for income and expenses -->
+    <h2>Income and Expenses</h2>
+    <canvas id="incomeExpenseChart"></canvas>
+
+    <!-- New bar graph for expense breakdown by category -->
+    <h2>Expense Breakdown by Category</h2>
+    <canvas id="expenseBreakdownChart"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Data for the Income and Expenses chart
+        const incomeExpenseData = {
+            labels: ['Income', 'Expenses'],
+            datasets: [{
+                label: 'Total',
+                data: [{{ total_income }}, {{ total_expenses }}],
+                backgroundColor: ['#36a2eb', '#ff6384'],
+                borderColor: ['#36a2eb', '#ff6384'],
+                borderWidth: 1
+            }]
+        };
+
+        // Data for the Expense Breakdown chart
+        const categories = {{ categories|tojson }};
+        const categoryData = {{ category_totals|tojson }};
+        const totalIncome = {{ total_income }};
+
+        // Generate a color for each category
+        const colors = categories.map((_, index) => 
+            `hsl(${(index * 360 / categories.length) % 360}, 70%, 70%)`
+        );
+
+        const expenseBreakdownData = {
+            labels: categories,
+            datasets: [{
+                label: 'Expenses by Category',
+                data: categoryData,
+                backgroundColor: colors,
+                borderColor: colors,
+                borderWidth: 1
+            }]
+        };
+
+        // Income and Expenses Chart
+        new Chart(document.getElementById('incomeExpenseChart').getContext('2d'), {
+            type: 'bar',
+            data: incomeExpenseData,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Expense Breakdown Chart
+        new Chart(document.getElementById('expenseBreakdownChart').getContext('2d'), {
+            type: 'bar',
+            data: expenseBreakdownData,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        suggestedMax: totalIncome  // Set the maximum value of the y-axis to the total income
+                    }
+                }
+            }
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Login - Personal Expense Tracker{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-lg">
+                    <div class="card-body p-5">
+                        <h2 class="text-center mb-4">Login to Your Account</h2>
+                        <form method="POST" action="/login" id="expenseform">
+                            <!-- Email Input -->
+                            <div class="form-group mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                                <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </div>
+                            
+                            <!-- Password Input -->
+                            <div class="form-group mb-4">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                                <small class="form-text text-muted">Make sure your password is secure.</small>
+                            </div>
+                            
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn btn-primary btn-block w-100">Login</button>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="{{ url_for('static', filename='mail.js') }}"></script>
+{% endblock %}

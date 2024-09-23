@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Personal Expense Tracker{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="text-center mb-5">
+            <h1 class="display-4 fw-bold">Welcome to the Personal Expense Tracker</h1>
+            <p class="lead">Effortlessly manage your finances. Track income and expenses, categorize them, and explore summaries with insightful visualizations.</p>
+        </div>
+
+        <div class="row text-center">
+            <!-- Card for Log Income -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card border-0 h-100 shadow-lg p-3 bg-body rounded hover-shadow">
+                    <div class="card-body">
+                        <i class="fas fa-money-bill-wave fa-3x text-success mb-3"></i>
+                        <h5 class="card-title fw-semibold">Log Income</h5>
+                        <p class="card-text text-muted">Organize your income by logging details like source, amount, and date to stay on top of your finances.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card for Log Expenses -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card border-0 h-100 shadow-lg p-3 bg-body rounded hover-shadow">
+                    <div class="card-body">
+                        <i class="fas fa-receipt fa-3x text-danger mb-3"></i>
+                        <h5 class="card-title fw-semibold">Log Expenses</h5>
+                        <p class="card-text text-muted">Track your spending by logging expenses with descriptions, categories, amounts, and dates.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card for View Summaries -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card border-0 h-100 shadow-lg p-3 bg-body rounded hover-shadow">
+                    <div class="card-body">
+                        <i class="fas fa-chart-bar fa-3x text-info mb-3"></i>
+                        <h5 class="card-title fw-semibold">View Summaries</h5>
+                        <p class="card-text text-muted">Explore detailed summaries of your financial data and analyze your income and spending trends.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card for Visualizations -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card border-0 h-100 shadow-lg p-3 bg-body rounded hover-shadow">
+                    <div class="card-body">
+                        <i class="fas fa-chart-pie fa-3x text-warning mb-3"></i>
+                        <h5 class="card-title fw-semibold">Visualizations</h5>
+                        <p class="card-text text-muted">Gain insights with dynamic graphs and charts, helping you visualize income, expenses, and more.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
